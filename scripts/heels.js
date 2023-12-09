@@ -47,10 +47,10 @@ document
 
     if (gender == "male") {
       heelHeight = 1;
-      imageUrl = "images/boot2.png";
+      imageUrl = "../images/boot2.png";
     } else if (gender == "female") {
       heelHeight = footLength / 7;
-      imageUrl = heelHeight > 5 ? "images/boot3.png" : "images/boot1.png";
+      imageUrl = heelHeight > 5 ? "../images/boot3.png" : "../images/boot1.png";
     }
 
     // Выводим результат на страницу

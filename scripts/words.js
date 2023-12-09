@@ -1,6 +1,6 @@
     var draggedElement;
     var originalText;
-    var newElement; 
+    var newElement;
     var addedKeys = [];
     var wordsCounter = 1;
     var numsCounter = 1;
@@ -11,7 +11,7 @@
         var resultMap = {};
         var wordsArray = [];
         var numbersArray = [];
-        
+
         var validInputRegex = /^[\wа-яА-Я]+(-[\wа-яА-Я]+)*$/;
 
         // Проверка корректности ввода
@@ -113,9 +113,9 @@
             draggedElement = null; // Сбрасываем переменную после отпускания мыши
 
             var resultBlock = document.getElementById('result');
-            var key = originalText.split(' ')[0]; 
+            var key = originalText.split(' ')[0];
             var value = originalText.split(' ')[1];
-            
+
             if(!addedKeys.includes(key)) {
                 resultBlock.textContent += ' ' + value;
                 addedKeys.push(key);
@@ -123,4 +123,3 @@
 
         }
     }
-
