@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>Мое портфолио</title>
+	<link rel="stylesheet" href="/main/css/styles.css" type="text/css">
+	<link rel="stylesheet" href="/main/css/words.css" type="text/css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+ <div id="wrapper">
+		<header>
+			<nav>
+				<ul id="top-menu">
+					<li><a href="/main/index.html">ПОРТФОЛИО</a></li>
+					<li><a href="/main/pic.html">ЗАДАНИЕ 1</a></li>
+					<li><a href="/main/heels.html">ЗАДАНИЕ 2</a></li>
+					<li><a href="/main/brand.html">ЗАДАНИЕ 3</a></li>
+					<li><a href="">ЗАДАНИЕ 4</a></li>
+					<li class="active">ЗАДАНИЕ 5</li>
+					<li><a href="/game/html/lobby.html">КУРСОВАЯ РАБОТА</a></li>
+				</ul>
+			</nav>
+		</header>
+	<div id="section">
+		<div id="result-container"></div>
+		<div id="bottom">
+			<div id="left-container" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="form-container">
+                <form id="myForm">
+                    <label for="input-field">Введите текст:</label>
+                    <input type="text" id="input-field" name="input-field">
+                    <button type="button" id="submit-button" onclick="handleButtonClick()">Разобрать</button>
+                </form>
+				<div id="error-text"></div>
+				<div id="result"></div>
+            </div>
+		</div>
+	</div>
+</div>
+	<footer>
+		<p>Борисов Андрей &copy; 2023</p>
+	</footer>
+
+	<script src="/main/scripts/words.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+#gameContainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#panels {
+    display: flex;
+    justify-content: space-between;
+    height: 60%;
+}
+
+#leftBlock {
+    width: 30%;
+    height: 100%;
+    background-color: #f2f2f2;
+    margin-left: 2%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали */
+    margin-right: 5%;
+    border-radius: 20px;
+}
+
+#rightBlock {
+    width: 60%;
+    height: 100%;
+    margin-right: 2%;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Центрирование по вертикали */
+}
+
+/* Стили для контейнера правой сетки (теперь используем dynamicRightColorGrids) */
+#dynamicRightColorGrids {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки в сетке */
+    gap: 10px; /* Расстояние между блоками в сетке */
+    text-align: center;
+}
+
+/* Добавьте этот стиль для блоков в правой сетке (colorGrid) */
+#dynamicRightColorGrids .colorGrid {
+    padding: 10px; /* Внутренний отступ для блоков */
+}
+
+.colorGridRight {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#dynamicRightColorGrids.loading .colorGridRight {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+/* #levelText {
+    font-size: 3vh;
+} */
+
+#rightBlock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.colorGrid {
+    width: 10vw;
+    height: 10vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    grid-gap: 1%;
+    justify-content: center;
+    margin: 20px;
+    transition: filter 0.3s ease;
+}
+
+#leftBlock .colorGrid {
+    width: 20vw;
+    height: 20vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    grid-gap: 1%;
+    justify-content: center;
+    margin: 20px;
+    transition: filter 0.3s ease;
+}
+
+.colorGrid:hover:not(#colorGridLeft) {
+    filter: brightness(80%);
+    transform: scale(3);
+
+}
+
+.colorGrid div {
+    flex-grow: 1;
+    aspect-ratio: 1/1;
+    box-sizing: border-box;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+}
+
+#mainPanel {
+    padding: 20px;
+    margin-left: 1%;
+}
+
+h1 {
+    color: #333;
+}
+
+#playerName {
+    color: #4CAF50;
+}
+
+#upperPanel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#timer {
+    margin-right: 5%;
+    font-size: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+a {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: #7e7e7e;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #979696;
+}

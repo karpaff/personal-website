@@ -1,0 +1,64 @@
+/* Стили для формы и области карточек */
+#form-container,
+#result-container,
+#left-container {
+    flex: 1;
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#form-container {
+    text-align: right;
+}
+
+#myForm {
+    margin-bottom: 2em;
+}
+
+#result-container {
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.result-item {
+    background-color: #00b7ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: move; /* Добавлен стиль для указания, что элемент можно перемещать */
+
+}
+
+/* Стили для блока слева */
+#left-container {
+    background-color: #f2f2f2;
+    height: 400px;
+}
+
+#section {
+    /* display: flex;  */
+    flex-direction: column;
+}
+
+#bottom {
+    display: flex; 
+    flex: 1; 
+    flex-direction: row; 
+    align-items: stretch;
+}
+
+
+#result {
+    border: 1px solid rgb(40, 208, 255); 
+    height: 3em;
+    width: 100%; 
+    padding: 10px; 
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center; 
+}

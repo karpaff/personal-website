@@ -1,0 +1,53 @@
+#motionPath {
+    fill: transparent;
+}
+
+#container {
+    height: 200px;
+    width: 200px;
+    left: 50%;
+    border-color: black;
+    border-width: 100px;
+    position: relative;
+
+}
+
+.letters {
+    width: 30%;
+    offset-path: path('M0.72387 108.276L18.0401 67.8088C22.5404 57.2922 34.9284 52.6856 45.2065 57.7068L72.9175 71.2447C84.8026 77.051 98.9495 69.927 101.361 56.9212L111.839 0.42206');
+    offset-rotate: 0deg;
+}
+
+#letter1 {
+    offset-distance: 100%;
+}
+
+#letter2 {
+    offset-distance: 0%;
+}
+
+#text {
+	font: 1.8rem 'Tahoma', sans-serif;
+	font-weight: 300;
+    position: absolute;
+    bottom: 15%;
+    left: 46%;
+    color: rgb(0, 0, 0);
+}
+
+#image {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    color: rgb(0, 0, 0);
+}
+
+@keyframes moveAlongPath {
+    0% {
+        offset-distance: 0%;
+    }
+
+    100% {
+        offset-distance: 100%;
+    }
+}

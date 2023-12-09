@@ -1,0 +1,57 @@
+#gameSection {
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#playButton {
+    padding: 0.5% 1%;
+    font-size: 1.5em;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#playButton:hover {
+    background-color: #45a049;
+}
+
+/* Добавьте этот стиль для блоков в правой области */
+.colorGrid {
+    display: inline-block;
+    margin: 10px; /* Расстояние между блоками */
+    border: 1px solid #333; /* Граница для видимости блоков */
+    padding: 10px; /* Внутренний отступ для блоков */
+}
+
+#dynamicRightColorGrids {
+    text-align: center; /* Выравнивание блоков в центре */
+}
+
+#difficultyPanel {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+label {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+
+#errorText {
+    margin: 5%;
+    font-size: 1.2em;
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>Веб-игра</title>
+	<link rel="stylesheet" href="/main/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/game/css/lobby.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			<nav>
+				<ul id="top-menu">
+					<li><a href="/index.html">ПОРТФОЛИО</a></li>
+					<li><a href="/pic.html">ЗАДАНИЕ 1</a></li>
+					<li><a href="/heels.html">ЗАДАНИЕ 2</a></li>
+					<li><a href="/brand.html">ЗАДАНИЕ 3</a></li>
+					<li><a href="">ЗАДАНИЕ 4</a></li>
+					<li><a href="/words.html">ЗАДАНИЕ 5</a></li>
+					<li class="active">КУРСОВАЯ РАБОТА</li>
+				</ul>
+			</nav>
+		</header>
+        <div id="gameSection">
+            <h1>Зрительный диктант</h1>
+            <p>В этой игре нужно найти квадрат, соответствующий исходному.<br>
+            После начала игры в левой части экрана вы увидите исходный квадрат из цветных квадратиков, а в правой — варианты ответа. <br>
+            Найдите квадрат из левой части экрана и нажмите на него. Учтите, что квадраты в правой части экрана могут быть перевернуты.</p>
+            <p>Всего в игре 5 уровней. И помните о времени!
+            <br>Выберите сложность и нажмите кнопку "Играть". </p>
+
+            <div id="difficultyPanel">
+                <label>
+                    <input type="radio" name="difficulty" value="easy" checked>
+                    Легкий
+                </label>
+                <label>
+                    <input type="radio" name="difficulty" value="medium">
+                    Средний
+                </label>
+                <label>
+                    <input type="radio" name="difficulty" value="hard">
+                    Сложный
+                </label>
+            </div>
+            <button id="playButton">Играть</button>
+            <div id="errorText"></div>
+        </div>
+	</div>
+	<footer>
+		<p>Борисов Андрей &copy; 2023</p>
+	</footer>
+    <script src="/game/js/lobby.js"></script>
+
+</body>
+
+</html>

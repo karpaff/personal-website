@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра</title>
+    <link rel="stylesheet" href="/game/css/game.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="upperPanel">
+        <div id="mainPanel">
+            <h1>Зрительный диктант</h1>
+            <h2 id="levelText">Уровень: <span id="levelNumber">1</span></h2>
+            <h3>Игрок: <span id="playerName"></span></h1>
+
+        </div>
+        <div id="timer"></div>
+    </div>
+        <div id="panels">
+            <div id="leftBlock">
+                <h2>Нужно найти</h2>
+                <!-- Блок для генерации квадрата -->
+                <div class="colorGrid" id="colorGridLeft"></div>
+            </div>
+            <div id="rightBlock">
+                <!-- Блок для генерации 4 аналогичных квадратов -->
+                <div id="dynamicRightColorGrids"></div>
+
+            </div>
+        </div>
+        <a href="/game/html/lobby.html">
+            Вернуться на главную
+        </a>
+    </div>
+
+    <script src="/game/js/game.js"></script>
+</body>
+</html>
