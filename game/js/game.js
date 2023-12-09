@@ -143,7 +143,7 @@ function finishGame() {
 
     gameOver = true;
 
-    window.location.href = '../game/html/results.html';
+    window.location.href = '/game/html/results.html';
 }
 
 
