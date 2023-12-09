@@ -8,6 +8,7 @@ var difficulty = localStorage.getItem('difficulty') || 'easy';
 
 // Вывести имя игрока в соответствующий элемент
 document.getElementById('playerName').textContent = playerName;
+document.getElementById('difficulty').textContent = difficulty;
 
 // Конфигурация уровней
 var levelConfig = [
