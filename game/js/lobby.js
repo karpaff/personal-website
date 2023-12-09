@@ -10,7 +10,7 @@ function startGame() {
         localStorage.setItem('playerName', playerName);
         localStorage.setItem('difficulty', difficulty);
         // Перенаправление на страницу игры
-        window.location.href = '/game/html/game.html';
+        window.location.href = '../html/game.html';
     }
     else {
         var errorText = document.getElementById('errorText');
