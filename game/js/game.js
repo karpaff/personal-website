@@ -244,7 +244,7 @@ function displayDifficulty(difficulty) {
             difficultyElement.style.color = "green";
             break;
         case "medium":
-            difficultyElement.style.color = "yellow";
+            difficultyElement.style.color = "orange";
             break;
         case "hard":
             difficultyElement.style.color = "red";
