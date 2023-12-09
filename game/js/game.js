@@ -8,7 +8,7 @@ var difficulty = localStorage.getItem('difficulty') || 'easy';
 
 // Вывести имя игрока в соответствующий элемент
 document.getElementById('playerName').textContent = playerName;
-document.getElementById('difficulty').textContent = difficulty;
+displayDifficulty(difficulty);
 
 // Конфигурация уровней
 var levelConfig = [
@@ -232,5 +232,24 @@ function fillColorGridRiht(colorGridRight, numTotalSquares, curGrid, correctSqua
         }
 
         colorGridRight.appendChild(colorSquare);
+    }
+}
+
+function displayDifficulty(difficulty) {
+    var difficultyElement = document.getElementById('difficulty');
+    difficultyElement.textContent = difficulty;
+    console.log(difficultyElement);
+    switch(difficulty) {
+        case "easy":
+            difficultyElement.style.color = "green";
+            break;
+        case "medium":
+            difficultyElement.style.color = "yellow";
+            break;
+        case "hard":
+            difficultyElement.style.color = "red";
+            break;
+        default:
+            difficultyElement.style.color = "black";
     }
 }

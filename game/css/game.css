@@ -122,8 +122,8 @@ h1 {
     color: #333;
 }
 
-#playerName, #difficulty {
-    color: #4CAF50;
+#playerName {
+    color: #7e7e7e;
 }
 
 #upperPanel {
