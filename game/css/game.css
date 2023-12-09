@@ -23,11 +23,11 @@ body {
     height: 100%;
     background-color: #f2f2f2;
     margin-left: 2%;
-    padding: 20px;
+    padding: 1.5%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрирование по горизонтали */
-    justify-content: center; /* Центрирование по вертикали */
+    align-items: center;
+    justify-content: center;
     margin-right: 5%;
     border-radius: 20px;
 }
@@ -38,22 +38,18 @@ body {
     margin-right: 2%;
     border-radius: 20px;
     background-color: #f2f2f2;
-    padding: 20px;
+    padding: 1.5%;
     display: flex;
-    justify-content: center; /* Центрирование по вертикали */
+    justify-content: center;
 }
 
-/* Стили для контейнера правой сетки (теперь используем dynamicRightColorGrids) */
 #dynamicRightColorGrids {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Три колонки в сетке */
-    gap: 10px; /* Расстояние между блоками в сетке */
     text-align: center;
 }
 
-/* Добавьте этот стиль для блоков в правой сетке (colorGrid) */
 #dynamicRightColorGrids .colorGrid {
-    padding: 10px; /* Внутренний отступ для блоков */
+    padding: 1%;
 }
 
 .colorGridRight {
@@ -64,10 +60,6 @@ body {
     opacity: 0;
     transform: translateY(100%);
 }
-
-/* #levelText {
-    font-size: 3vh;
-} */
 
 #rightBlock {
     display: flex;
@@ -90,18 +82,11 @@ body {
 #leftBlock .colorGrid {
     width: 20vw;
     height: 20vw;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
-    grid-gap: 1%;
-    justify-content: center;
-    margin: 20px;
-    transition: filter 0.3s ease;
 }
 
 .colorGrid:hover:not(#colorGridLeft) {
     filter: brightness(80%);
     transform: scale(3);
-
 }
 
 .colorGrid div {
@@ -114,7 +99,7 @@ body {
 }
 
 #mainPanel {
-    padding: 20px;
+    padding: 1.5%;
     margin-left: 1%;
 }
 
@@ -141,14 +126,13 @@ h1 {
     justify-content: center;
 }
 
-
 a {
     position: fixed;
-    bottom: 10px;
-    left: 10px;
+    bottom: 1%;
+    left: 1%;
     background-color: #7e7e7e;
     color: white;
-    padding: 10px;
+    padding: 1%;
     text-decoration: none;
     border-radius: 5px;
     cursor: pointer;

@@ -8,6 +8,7 @@ var difficulty = localStorage.getItem('difficulty') || 'easy';
 
 // Вывести имя игрока в соответствующий элемент
 document.getElementById('playerName').textContent = playerName;
+
 displayDifficulty(difficulty);
 
 // Конфигурация уровней
@@ -38,7 +39,6 @@ var currentDifficultyConfig = difficultyConfig[difficulty];
 
 // Определение количества блоков в правой области
 var numRightColorGrids = currentDifficultyConfig.numRightColorGrids;
-
 
 function startLevel() {
     currentLevel++;
@@ -86,7 +86,6 @@ function updateTimer() {
         secondsRemaining--;
         setTimeout(updateTimer, 1000);
     } else {
-        // Действия при завершении времени (переход к следующему уровню и т. д.)
         alert('Время вышло! Переход к следующему уровню.');
         startLevel();
     }
@@ -100,7 +99,6 @@ function updateScore() {
 
     var penaltyForTime = Math.floor(secondsRemaining / currentDifficultyConfig.timePenaltyDivider);
     score -= penaltyForTime;
-
 
     localStorage.setItem('score', score);
 
@@ -119,7 +117,6 @@ function penalize() {
 // Начало первого уровня
 startLevel();
 
-// Функция для генерации случайного цвета
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';

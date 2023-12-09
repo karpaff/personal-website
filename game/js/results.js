@@ -1,7 +1,5 @@
-// Получаем данные из localStorage
 var playerScores = JSON.parse(localStorage.getItem('playerScores')) || {};
 
-// Получаем последний айдишник
 var lastGameId = Object.keys(playerScores).pop();
 
 // Получаем тело таблицы, куда будем добавлять строки
@@ -25,9 +23,8 @@ sortedPlayerScores.forEach(function([gameId, data], index) {
     row.appendChild(playerNameCell);
     row.appendChild(scoreCell);
 
-    // Проверяем, является ли текущий айдишник последним
+    // Проверяем, является ли текущий айдишник последним в playerScores
     if (gameId === lastGameId) {
-        // Если является последним, выделяем строку жирным шрифтом
         row.style.fontWeight = 'bold';
     }
 

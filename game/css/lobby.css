@@ -7,6 +7,7 @@ h1 {
 }
 
 #playButton {
+    width: 20%;
     padding: 0.5% 1%;
     font-size: 1.5em;
     cursor: pointer;
@@ -20,18 +21,6 @@ h1 {
     background-color: #45a049;
 }
 
-/* Добавьте этот стиль для блоков в правой области */
-.colorGrid {
-    display: inline-block;
-    margin: 10px; /* Расстояние между блоками */
-    border: 1px solid #333; /* Граница для видимости блоков */
-    padding: 10px; /* Внутренний отступ для блоков */
-}
-
-#dynamicRightColorGrids {
-    text-align: center; /* Выравнивание блоков в центре */
-}
-
 #difficultyPanel {
     display: flex;
     justify-content: center;
@@ -40,16 +29,12 @@ h1 {
 }
 
 label {
-    display: inline-block;
-    margin-right: 15px;
-    font-size: 16px;
-    color: #333;
+    font-size: 1.2em;
 }
 
 input[type="radio"] {
-    margin-right: 5px;
+    margin-right: 1%;
 }
-
 
 #errorText {
     margin: 5%;
