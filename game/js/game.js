@@ -72,6 +72,7 @@ function startLevel() {
 
     // Генерация блоков в правой области
     fillRightGrid(numRightColorGrids, numSquaresPerRow, numTotalSquares, correctSquareIndex);
+    leftPanelColors = [];
 
     // Запуск таймера
     updateTimer();
@@ -80,6 +81,7 @@ function startLevel() {
 function updateTimer() {
     var minutes = Math.floor(secondsRemaining / 60);
     var seconds = secondsRemaining % 60;
+    // Добавляем ноль перед секундами < 10
     timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
     if (secondsRemaining > 0) {
@@ -197,12 +199,12 @@ function fillRightGrid(numRightColorGrids, numSquaresPerRow, numTotalSquares, co
             }
         });
 
-        rotate(colorGridRight);
 
         // Устанавливаем количество столбцов и квадратов в сетке colorGrid
         colorGridRight.style.gridTemplateColumns = `repeat(${Math.ceil(numSquaresPerRow)}, 1fr)`;
 
         fillColorGridRiht(colorGridRight, numTotalSquares, curGrid, correctSquareIndex);
+        rotate(colorGridRight);
 
         // Добавляем rightColorGrid в существующий контейнер
         dynamicRightColorGrids.appendChild(colorGridRight);
@@ -216,20 +218,21 @@ function rotate(colorGridRight) {
 }
 
 function fillColorGridRiht(colorGridRight, numTotalSquares, curGrid, correctSquareIndex) {
+    console.log(leftPanelColors);
     for (let i = 0; i < numTotalSquares; i++) {
         var colorSquare = document.createElement('div');
-        colorSquare.className = 'colorSquare'; // Добавим класс для стилей
 
         // Использовать цвет из массива для первого квадрата
         if (curGrid === correctSquareIndex) {
             colorSquare.style.backgroundColor = leftPanelColors[i];
-            console.log(leftPanelColors[i]);
         } else {
-            colorSquare.style.backgroundColor = getRandomColor();
+           colorSquare.style.backgroundColor = getRandomColor();
         }
+
 
         colorGridRight.appendChild(colorSquare);
     }
+
 }
 
 function displayDifficulty(difficulty) {
