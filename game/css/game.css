@@ -141,3 +141,33 @@ a {
 a:hover {
     background-color: #979696;
 }
+
+
+.correct-answer-animation {
+    animation: correctAnswerAnimation 2s ease-in-out;
+}
+
+@keyframes correctAnswerAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateCorrectColorGrid {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+.animateCorrectColorGrid {
+    animation: rotateCorrectColorGrid 0.5s linear infinite;
+}

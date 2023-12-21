@@ -27,7 +27,9 @@ var difficultyConfig = {
     hard: { numRightColorGrids: 6, scoreMultiplier: 40, timePenaltyDivider: 4, penaltyIncorrectAnswer: 3 }
 };
 
-var currentLevel = 0;
+var currentLevel = 1;
+var currentRound = 1;
+var roundPerLevel = 3;
 var levelTextElement = document.getElementById('levelText');
 var levelNumberElement = document.getElementById('levelNumber');
 var timerElement = document.getElementById('timer');
@@ -40,42 +42,19 @@ var currentDifficultyConfig = difficultyConfig[difficulty];
 // Определение количества блоков в правой области
 var numRightColorGrids = currentDifficultyConfig.numRightColorGrids;
 
-function startLevel() {
-    currentLevel++;
+async function startLevel() {
     gameInProgress = true;
+
+    if (currentRound > roundPerLevel) {
+        currentLevel++;
+        currentRound = 1;
+    }
+
+    startRound();
 
     if (currentLevel > levelConfig.length) {
         finishGame();
     }
-
-    var rightBlock = document.getElementById('rightBlock');
-    rightBlock.style.border = '';
-
-    var currentLevelConfig = levelConfig[currentLevel - 1];
-
-    var numSquaresPerRow = currentLevelConfig.numSquaresPerRow;
-    var numTotalSquares = numSquaresPerRow ** 2;
-
-    levelNumberElement.textContent = currentLevel;
-
-    secondsRemaining = currentLevelConfig.secondsRemaining;
-
-    // Очистка предыдущих блоков
-    document.getElementById('colorGridLeft').innerHTML = '';
-    document.getElementById('dynamicRightColorGrids').innerHTML = '';
-
-
-    createSample(numTotalSquares, currentLevelConfig.numSquaresPerRow);
-    createRightGrid(numRightColorGrids);
-
-    var correctSquareIndex = Math.floor(Math.random() * numRightColorGrids);
-
-    // Генерация блоков в правой области
-    fillRightGrid(numRightColorGrids, numSquaresPerRow, numTotalSquares, correctSquareIndex);
-    leftPanelColors = [];
-
-    // Запуск таймера
-    updateTimer();
 }
 
 function updateTimer() {
@@ -88,10 +67,13 @@ function updateTimer() {
         secondsRemaining--;
         setTimeout(updateTimer, 1000);
     } else {
-        alert('Время вышло! Переход к следующему уровню.');
         startLevel();
     }
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
 function updateScore() {
     var currentDifficultyConfig = difficultyConfig[difficulty];
@@ -180,22 +162,31 @@ function fillRightGrid(numRightColorGrids, numSquaresPerRow, numTotalSquares, co
     for (let curGrid = 0; curGrid <= numRightColorGrids - 1; curGrid++) {
         var colorGridRight = document.createElement('div');
         colorGridRight.className = 'colorGrid';
+        colorGridRight.id = 'colorGrid_' + curGrid;
 
         // Добавляем обработчик клика на colorGrid
         colorGridRight.addEventListener('click', function () {
             if (gameInProgress) {
                 if (curGrid === correctSquareIndex) {
                     updateScore();
-                    rightBlock.style.border = '3px solid green';
+
+                    rightBlock.style.border = '5px dashed green';
                 }
                 else {
-                    rightBlock.style.border = '3px solid red';
+                    rightBlock.style.border = '5px dashed red';
                     penalize();
                 }
                 gameInProgress = false;
                 setTimeout(function () {
                     startLevel();
                 }, 1000);
+                var correctSquare = document.getElementById('colorGrid_' + correctSquareIndex);
+                var curSquare = document.getElementById('colorGrid_' + curGrid);
+
+                animateCorrectGrid(correctSquare);
+
+                curSquare.style.border = '3px solid red';
+                correctSquare.style.border = '3px solid green';
             }
         });
 
@@ -211,6 +202,14 @@ function fillRightGrid(numRightColorGrids, numSquaresPerRow, numTotalSquares, co
     }
 }
 
+function animateCorrectGrid(colorGrid) {
+    colorGrid.classList.add('correct-answer-animation');
+
+    setTimeout(() => {
+        colorGrid.classList.remove('correct-answer-animation');
+    }, 1000);
+}
+
 function rotate(colorGridRight) {
     // Генерация случайного числа для поворота
     var rotationAngle = Math.floor(Math.random() * 4) * 90; // 0, 90, 180, 270
@@ -218,7 +217,6 @@ function rotate(colorGridRight) {
 }
 
 function fillColorGridRiht(colorGridRight, numTotalSquares, curGrid, correctSquareIndex) {
-    console.log(leftPanelColors);
     for (let i = 0; i < numTotalSquares; i++) {
         var colorSquare = document.createElement('div');
 
@@ -238,7 +236,6 @@ function fillColorGridRiht(colorGridRight, numTotalSquares, curGrid, correctSqua
 function displayDifficulty(difficulty) {
     var difficultyElement = document.getElementById('difficulty');
     difficultyElement.textContent = difficulty;
-    console.log(difficultyElement);
     switch(difficulty) {
         case "easy":
             difficultyElement.style.color = "green";
@@ -252,4 +249,48 @@ function displayDifficulty(difficulty) {
         default:
             difficultyElement.style.color = "black";
     }
+}
+
+async function startRound() {
+    currentRound++;
+    var rightBlock = document.getElementById('rightBlock');
+    rightBlock.style.border = '';
+
+    var currentLevelConfig = levelConfig[currentLevel - 1];
+
+    var numSquaresPerRow = currentLevelConfig.numSquaresPerRow;
+    var numTotalSquares = numSquaresPerRow ** 2;
+
+    levelNumberElement.textContent = currentLevel;
+
+    secondsRemaining = currentLevelConfig.secondsRemaining;
+
+    // Очистка предыдущих блоков
+    document.getElementById('colorGridLeft').innerHTML = '';
+    document.getElementById('dynamicRightColorGrids').innerHTML = '';
+
+
+    createSample(numTotalSquares, currentLevelConfig.numSquaresPerRow);
+    createRightGrid(numRightColorGrids);
+
+    var correctSquareIndex = Math.floor(Math.random() * numRightColorGrids);
+
+
+    // Генерация блоков в правой области
+    fillRightGrid(numRightColorGrids, numSquaresPerRow, numTotalSquares, correctSquareIndex);
+    leftPanelColors = [];
+
+    // Запуск таймера
+    updateTimer();
+    await sleep(2000);
+    var randomSquareIndex1 = Math.floor(Math.random() * numRightColorGrids);
+    var randomSquareIndex2 = Math.floor(Math.random() * numRightColorGrids);
+    var randomSquare1 = document.getElementById('colorGrid_' + randomSquareIndex1);
+    var randomSquare2 = document.getElementById('colorGrid_' + randomSquareIndex2);
+
+    randomSquare1.classList.add('animateCorrectColorGrid');
+    randomSquare2.classList.add('animateCorrectColorGrid');
+    await sleep(500);
+    randomSquare1.classList.remove('animateCorrectColorGrid');
+    randomSquare2.classList.remove('animateCorrectColorGrid');
 }
