@@ -84,9 +84,21 @@ body {
     height: 20vw;
 }
 
+@keyframes ease-in-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .colorGrid:hover:not(#colorGridLeft) {
     filter: brightness(80%);
-    transform: scale(3);
+    animation: ease-in-animation 1s ease-in-out;
 }
 
 .colorGrid div {
@@ -140,23 +152,6 @@ a {
 
 a:hover {
     background-color: #979696;
-}
-
-
-.correct-answer-animation {
-    animation: correctAnswerAnimation 2s ease-in-out;
-}
-
-@keyframes correctAnswerAnimation {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
 }
 
 @keyframes rotateCorrectColorGrid {

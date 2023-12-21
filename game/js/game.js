@@ -179,14 +179,12 @@ function fillRightGrid(numRightColorGrids, numSquaresPerRow, numTotalSquares, co
                 gameInProgress = false;
                 setTimeout(function () {
                     startLevel();
-                }, 1000);
+                }, 2000);
                 var correctSquare = document.getElementById('colorGrid_' + correctSquareIndex);
                 var curSquare = document.getElementById('colorGrid_' + curGrid);
 
-                animateCorrectGrid(correctSquare);
-
                 curSquare.style.border = '3px solid red';
-                correctSquare.style.border = '3px solid green';
+                correctSquare.style.border = '6px solid green';
             }
         });
 
@@ -202,11 +200,11 @@ function fillRightGrid(numRightColorGrids, numSquaresPerRow, numTotalSquares, co
     }
 }
 
-function animateCorrectGrid(colorGrid) {
-    colorGrid.classList.add('correct-answer-animation');
+function animateGrid(colorGrid) {
+    colorGrid.classList.add('mouseover-animation');
 
     setTimeout(() => {
-        colorGrid.classList.remove('correct-answer-animation');
+        colorGrid.classList.remove('mouseover-animation');
     }, 1000);
 }
 
