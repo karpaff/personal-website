@@ -1,5 +1,5 @@
 Website with a CV and a simple JS game\
-Check at https://karpaff.github.io/website/
+Check at https://karpaff.github.io/personal-website/
 
 ![CV](https://imgur.com/MWx3uvt.png)
 
